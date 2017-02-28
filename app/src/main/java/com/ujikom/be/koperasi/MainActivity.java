@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ujikom.be.koperasi.fragment.HomeFragment;
+import com.ujikom.be.koperasi.fragment.SignInFragment;
 
 import java.util.ArrayList;
 
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity
             displaySelectedScreen(R.id.nav_my_checklist);
         }
         else {
-            Fragment f = new HomeFragment();
+            Fragment f = new SignInFragment();
             showFragment(f);
         }
     }
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity
 
         TextView tvNama = (TextView) navigationView.getHeaderView(0).findViewById(R.id.tvName);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("jsTaxPrefs", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("koperasiPrefs", Context.MODE_PRIVATE);
         if (sharedPreferences.contains("username")){
             tvNama.setText(sharedPreferences.getString("name",""));
         }

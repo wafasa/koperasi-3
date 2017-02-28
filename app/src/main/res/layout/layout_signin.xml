@@ -15,51 +15,19 @@
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:src="@drawable/logo"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="64dp"
             android:layout_marginBottom="32dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:text="Jeffry Susilo &amp; Partner"
+            android:layout_marginBottom="32dp"
+            android:text="Our Circle"
             android:gravity="center_horizontal"
             android:textAllCaps="true"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorPrimary"
             android:textSize="20sp"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Jasa Perpajakan &amp; Pembukuan"
-            android:gravity="center_horizontal"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-            <TextView
-                android:id="@+id/tvSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="16dp"
-                android:text="Belum punya akun?"
-                android:layout_marginTop="24dp"/>
-            <TextView
-                android:id="@+id/tvSignUp2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="24dp"
-                android:text=" Daftar di sini"
-                android:textColor="@color/colorAccent"
-                android:layout_marginTop="32dp"/>
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,7 +44,7 @@
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/round_5_edittext_blue"
+                android:background="@drawable/round_5_edittext_green"
                 android:hint="Username"
                 android:singleLine="true"
                 android:textColorHint="@android:color/white"
@@ -107,7 +75,7 @@
                 android:id="@+id/etPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/round_5_edittext_blue"
+                android:background="@drawable/round_5_edittext_green"
                 android:hint="Password"
                 android:textColorHint="@android:color/white"
                 android:textColor="@android:color/white"
@@ -125,7 +93,7 @@
             android:text="Sign In"
             android:textAllCaps="false"
             android:background="@drawable/round_5_button_white"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginBottom="16dp"/>
