@@ -11,9 +11,9 @@
         <item
             android:id="@+id/nav_pinjaman"
             android:title="Pinjaman" />
-        <item
-            android:id="@+id/nav_angsuran"
-            android:title="Angsuran" />
+        <!--<item-->
+            <!--android:id="@+id/nav_angsuran"-->
+            <!--android:title="Angsuran" />-->
         <!--<item-->
             <!--android:id="@+id/nav_pengajuan"-->
             <!--android:title="Pengajuan" />-->

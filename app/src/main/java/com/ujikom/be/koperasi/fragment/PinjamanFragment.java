@@ -24,6 +24,8 @@ import com.ujikom.be.koperasi.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,50 +54,61 @@ public class PinjamanFragment extends Fragment {
 
         tvPinjaman = (TextView) getView().findViewById(R.id.tvPinjaman);
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
-        getData(getContext(), sharedPreferences.getString("id",""));
+
+        DecimalFormat kursIndonesia = (DecimalFormat) DecimalFormat.getCurrencyInstance();
+        DecimalFormatSymbols formatRp = new DecimalFormatSymbols();
+
+        formatRp.setCurrencySymbol("Rp. ");
+        formatRp.setMonetaryDecimalSeparator(',');
+        formatRp.setGroupingSeparator('.');
+
+        kursIndonesia.setDecimalFormatSymbols(formatRp);;
+
+        tvPinjaman.setText(kursIndonesia.format(Double.parseDouble(sharedPreferences.getString("pinjaman", ""))));
+//        getData(getContext(), sharedPreferences.getString("id",""));
     }
 
-    public boolean getData(Context context, final String id){
-        String url = getString(R.string.api_pinjaman);
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            Log.e(TAG, "response: "+response);
-                            JSONObject json = new JSONObject(response);
-
-                            if (json.getString("status").equals("success")){
-                                if (json.getString("total_pinjaman") == null) tvPinjaman.setText("Rp 0");
-                                else tvPinjaman.setText("Rp "+json.getString("total_simpanan"));
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(getActivity(), "Meminta data gagal", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                        Toast.makeText(getActivity(), "Meminta data gagal", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        ) {
-            @Override
-            protected Map<String, String> getParams() {
-
-                Map<String, String> params = new HashMap<>();
-
-                params.put("id_anggota", id);
-
-                return params;
-            }
-        };
-        RequestQueue queue = Volley.newRequestQueue(context);
-        queue.add(postRequest);
-
-        return true;
-    }
+//    public boolean getData(Context context, final String id){
+//        String url = getString(R.string.api_pinjaman);
+//        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        try {
+//                            Log.e(TAG, "response: "+response);
+//                            JSONObject json = new JSONObject(response);
+//
+//                            if (json.getString("status").equals("success")){
+//                                if (json.getString("total_pinjaman") == null) tvPinjaman.setText("Rp 0");
+//                                else tvPinjaman.setText("Rp "+json.getString("total_simpanan"));
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                            Toast.makeText(getActivity(), "Meminta data gagal", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        error.printStackTrace();
+//                        Toast.makeText(getActivity(), "Meminta data gagal", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        ) {
+//            @Override
+//            protected Map<String, String> getParams() {
+//
+//                Map<String, String> params = new HashMap<>();
+//
+//                params.put("id_anggota", id);
+//
+//                return params;
+//            }
+//        };
+//        RequestQueue queue = Volley.newRequestQueue(context);
+//        queue.add(postRequest);
+//
+//        return true;
+//    }
 }

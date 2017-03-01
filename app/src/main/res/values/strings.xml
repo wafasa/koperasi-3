@@ -14,7 +14,5 @@
     <!--<string name="api_simpanan">http://192.168.0.2/ujikom_be/public/api/simpanan</string>-->
     <!--<string name="api_pinjaman">http://192.168.0.2/ujikom_be/public/api/pinjaman</string>-->
 
-    <string name="api_login">http://192.168.137.82:80/ujikom_be/public/api/login</string>
-    <string name="api_simpanan">http://192.168.137.82:80/ujikom_be/public/api/simpanan</string>
-    <string name="api_pinjaman">http://192.168.137.82:80/ujikom_be/public/api/pinjaman</string>
+    <string name="api_login">http://192.168.43.237:80/ujikom_be/public/api/login</string>
 </resources>

@@ -97,6 +97,8 @@ public class SignInFragment extends Fragment {
                                     editor.putString("password", json.getString("password"));
                                     editor.putString("last_updated", json.getString("last_updated"));
                                     editor.putString("deleted", json.getString("deleted"));
+                                    editor.putString("simpanan", json.getString("simpanan"));
+                                    editor.putString("pinjaman", json.getString("pinjaman"));
                                     editor.commit();
 
                                     MainActivity mainActivity = (MainActivity) getActivity();
