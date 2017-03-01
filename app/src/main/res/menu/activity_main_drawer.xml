@@ -3,20 +3,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_my_checklist"
-            android:title="My Checklist" />
+            android:id="@+id/nav_simpanan"
+            android:title="Simpanan" />
         <item
-            android:id="@+id/nav_done_list"
-            android:title="Done List" />
+            android:id="@+id/nav_pinjaman"
+            android:title="Pinjaman" />
         <item
-            android:id="@+id/nav_client_list"
-            android:title="Client List" />
-        <item
-            android:id="@+id/nav_add_client"
-            android:title="Add New Client" />
-        <item
-            android:id="@+id/nav_add_list"
-            android:title="Add New Checklist" />
+            android:id="@+id/nav_angsuran"
+            android:title="Angsuran" />
+        <!--<item-->
+            <!--android:id="@+id/nav_pengajuan"-->
+            <!--android:title="Pengajuan" />-->
         <item
             android:id="@+id/nav_logout"
             android:title="Log Out" />

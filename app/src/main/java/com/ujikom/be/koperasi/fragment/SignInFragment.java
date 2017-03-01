@@ -34,6 +34,8 @@ public class SignInFragment extends Fragment {
 
     EditText etUser, etPass;
     Button btnSignIn;
+    public static final String PREFERENCES = "koperasiPrefs";
+    public static final String TAG = "B_Login";
 
     @Nullable
     @Override
@@ -75,16 +77,25 @@ public class SignInFragment extends Fragment {
                     public void onResponse(String response) {
                         // response
                         try {
-                            Log.e("B_Login","signin response: "+response);
+                            Log.e(TAG,"response: "+response);
                             if (response.length() > 0){
                                 JSONObject json = new JSONObject(response);
 
                                 if (json.getString("status").equals("success")){
-                                    SharedPreferences sharedpreferences = getContext().getSharedPreferences("koperasiPrefs", Context.MODE_PRIVATE);
+                                    SharedPreferences sharedpreferences = getContext().getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedpreferences.edit();
                                     editor.putString("id", json.getString("id"));
-                                    editor.putString("name", json.getString("name"));
+                                    editor.putString("nama", json.getString("nama"));
+                                    editor.putString("alamat", json.getString("alamat"));
+                                    editor.putString("no_telp", json.getString("no_telp"));
+                                    editor.putString("ttl", json.getString("ttl"));
+                                    editor.putString("jkel", json.getString("jkel"));
+                                    editor.putString("status", json.getString("status"));
+                                    editor.putString("keterangan", json.getString("keterangan"));
                                     editor.putString("username", json.getString("username"));
+                                    editor.putString("password", json.getString("password"));
+                                    editor.putString("last_updated", json.getString("last_updated"));
+                                    editor.putString("deleted", json.getString("deleted"));
                                     editor.commit();
 
                                     MainActivity mainActivity = (MainActivity) getActivity();
@@ -98,6 +109,7 @@ public class SignInFragment extends Fragment {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -105,6 +117,7 @@ public class SignInFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         error.printStackTrace();
+                        Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
         ) {

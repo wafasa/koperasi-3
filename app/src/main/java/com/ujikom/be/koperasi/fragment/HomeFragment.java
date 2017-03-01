@@ -18,8 +18,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.android.volley.Request;
@@ -42,6 +44,10 @@ import com.ujikom.be.koperasi.R;
 
 public class HomeFragment extends Fragment {
 
+    TextView tvNama, tvUsername, tvAlamat, tvTelp, tvTtl, tvStatus;
+    String nama, username, alamat, telp, ttl, status;
+    public static final String PREFERENCES = "koperasiPrefs";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,107 +64,27 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-    }
 
-//    public boolean getData(Context context, final String id){
-//        String url = "http://www.jstax.co.id/be_checklists";
-//        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        // response
-//                        try {
-//                            Log.e("LogOnF5", "checklist response: "+response);
-//                            JSONArray json = new JSONArray(response);
-//                            List<CheckList> checkList = new ArrayList<>();
-//                            dataMyCheckList.clear();
-//
-//                            if (json.length() > 0){
-//
-//                                for (int j = 0; j < json.length(); j++) {
-//                                    JSONObject object = new JSONObject(json.get(j).toString());
-//                                    String isdone = object.getString("isdone");
-//                                    if (isdone.equals("false")){
-//                                        CheckList u = new CheckList(object.getString("id"), object.getString("pic"), object.getString("default_pic"), object.getString("isdone"), object.getString("client"), object.getString("tipe_pekerjaan"), object.getString("spt_masa"), object.getString("jenis_spt"), object.getString("periode"), object.getString("note"), object.getString("detail_pajak"), object.getString("status"));
-//                                        checkList.add(u);
-//                                    }
-//                                }
-//
-//                                for (CheckList cL : checkList){
-//                                    dataMyCheckList.add(cL);
-//                                }
-//
-//                                final MyCheckListAdapter adapter = new MyCheckListAdapter(getContext(), dataMyCheckList, pos);
-//
-//                                listView.setAdapter(adapter);
-//                                listView.post(new Runnable() {
-//                                    @Override
-//                                    public void run() {
-//                                        listView.setSelection(pos);
-//                                    }
-//                                });
-////                                listView.setExpanded(true);
-//
-//                                etSearch.addTextChangedListener(new TextWatcher() {
-//                                    @Override
-//                                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//                                        adapter.getFilter().filter(charSequence);
-//                                    }
-//
-//                                    @Override
-//                                    public void afterTextChanged(Editable editable) {
-//
-//                                    }
-//                                });
-//                            }
-//
-//
-//                            swipeRefreshLayout.setRefreshing(false);
-//
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                            Toast.makeText(getActivity(), "Meminta data gagal", Toast.LENGTH_SHORT).show();
-//                            swipeRefreshLayout.setRefreshing(false);
-//                        }
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        error.printStackTrace();
-//                        Toast.makeText(getActivity(), "Meminta data gagal", Toast.LENGTH_SHORT).show();
-//                        swipeRefreshLayout.setRefreshing(false);
-//                    }
-//                }
-//        ) {
-//            @Override
-//            protected Map<String, String> getParams() {
-//
-//                Map<String, String> params = new HashMap<String, String>();
-//
-//                params.put("userId", id);
-//
-//                return params;
-//            }
-//        };
-//        RequestQueue queue = Volley.newRequestQueue(context);
-//        queue.add(postRequest);
-//
-//        return true;
-//    }
-//
-//    public static MyChecklistFragment newInstance(int pos) {
-//        MyChecklistFragment myChecklistFragment = new MyChecklistFragment();
-//
-//        Bundle args = new Bundle();
-//        args.putInt("pos", pos);
-//        myChecklistFragment.setArguments(args);
-//
-//        return myChecklistFragment;
-//    }
+        tvNama = (TextView) getView().findViewById(R.id.tvNama);
+        tvUsername = (TextView) getView().findViewById(R.id.tvUsername);
+        tvAlamat = (TextView) getView().findViewById(R.id.tvAlamat);
+        tvTelp = (TextView) getView().findViewById(R.id.tvTelp);
+        tvTtl = (TextView) getView().findViewById(R.id.tvTtl);
+        tvStatus = (TextView) getView().findViewById(R.id.tvStatus);
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
+        nama = sharedPreferences.getString("nama","");
+        username = sharedPreferences.getString("username","");
+        alamat = sharedPreferences.getString("alamat","");
+        telp = sharedPreferences.getString("no_telp","");
+        ttl = sharedPreferences.getString("ttl","");
+        status = sharedPreferences.getString("status","");
+
+        tvNama.setText(nama);
+        tvUsername.setText(username);
+        tvAlamat.setText(alamat);
+        tvTelp.setText(telp);
+        tvTtl.setText(ttl);
+        tvStatus.setText(status);
+    }
 }
