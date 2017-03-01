@@ -68,7 +68,7 @@ public class SignInFragment extends Fragment {
     }
 
     public boolean getData(Context context, final String username, final String password){
-        String url = "http://191.168.1.200/ujikom_be/api/login";
+        String url = getString(R.string.api_login);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override

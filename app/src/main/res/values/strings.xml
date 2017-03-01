@@ -9,4 +9,6 @@
 
     <string name="text_name">Name</string>
     <string name="text_user_active">User Active</string>
+
+    <string name="api_login">http://192.168.0.2/ujikom_be/public/api/login</string>
 </resources>
