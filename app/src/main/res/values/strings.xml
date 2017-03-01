@@ -7,10 +7,14 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
 
-    <string name="text_name">Name</string>
+    <string name="text_name">Nama</string>
     <string name="text_user_active">User Active</string>
 
-    <string name="api_login">http://192.168.0.2/ujikom_be/public/api/login</string>
-    <string name="api_simpanan">http://192.168.0.2/ujikom_be/public/api/simpanan</string>
-    <string name="api_pinjaman">http://192.168.0.2/ujikom_be/public/api/pinjaman</string>
+    <!--<string name="api_login">http://192.168.0.2/ujikom_be/public/api/login</string>-->
+    <!--<string name="api_simpanan">http://192.168.0.2/ujikom_be/public/api/simpanan</string>-->
+    <!--<string name="api_pinjaman">http://192.168.0.2/ujikom_be/public/api/pinjaman</string>-->
+
+    <string name="api_login">http://192.168.137.82:80/ujikom_be/public/api/login</string>
+    <string name="api_simpanan">http://192.168.137.82:80/ujikom_be/public/api/simpanan</string>
+    <string name="api_pinjaman">http://192.168.137.82:80/ujikom_be/public/api/pinjaman</string>
 </resources>

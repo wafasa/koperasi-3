@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         // ini bener cuma belum ada fragmentnya
         if (sharedPreferences.contains("username")){
             tvNama.setText(sharedPreferences.getString("name",""));
-            displaySelectedScreen(R.id.nav_my_checklist);
+            displaySelectedScreen(R.id.nav_home);
         } else {
             Fragment f = new SignInFragment();
             showFragment(f);
@@ -156,6 +156,10 @@ public class MainActivity extends AppCompatActivity
 
         switch (itemId) {
 //             ini bener cuma belum ada fragmentnya
+            case R.id.nav_home:
+                fragment = new HomeFragment();
+                showFragment(fragment);
+                break;
             case R.id.nav_simpanan:
                 fragment = new SimpananFragment();
                 showFragment(fragment);

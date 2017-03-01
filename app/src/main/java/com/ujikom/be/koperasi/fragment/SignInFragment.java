@@ -82,6 +82,7 @@ public class SignInFragment extends Fragment {
                                 JSONObject json = new JSONObject(response);
 
                                 if (json.getString("status").equals("success")){
+                                    Log.e(TAG, "sukses "+json.getString("status"));
                                     SharedPreferences sharedpreferences = getContext().getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedpreferences.edit();
                                     editor.putString("id", json.getString("id"));
@@ -90,7 +91,7 @@ public class SignInFragment extends Fragment {
                                     editor.putString("no_telp", json.getString("no_telp"));
                                     editor.putString("ttl", json.getString("ttl"));
                                     editor.putString("jkel", json.getString("jkel"));
-                                    editor.putString("status", json.getString("status"));
+                                    editor.putString("status", json.getString("status_user"));
                                     editor.putString("keterangan", json.getString("keterangan"));
                                     editor.putString("username", json.getString("username"));
                                     editor.putString("password", json.getString("password"));
@@ -103,6 +104,9 @@ public class SignInFragment extends Fragment {
                                     mainActivity.showFragment(f);
                                     mainActivity.clearHistory();
                                     mainActivity.setName();
+                                } else{
+                                    Log.e(TAG, "gagal "+json.getString("status"));
+                                    Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(getActivity(), "Login Failed", Toast.LENGTH_SHORT).show();
